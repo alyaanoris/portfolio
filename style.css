@@ -1,0 +1,392 @@
+/* GENERAL STYLES */
+body {
+    text-align: center;
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #1C1C1E;  /* Dark tech background */
+    color: #FFFFFF;
+  }
+  
+  h1, h2, h3 {
+    margin: 0;
+    padding-top: 50px;
+  }
+  
+  /* HERO SECTION */
+  .hero {
+    text-align: center;
+    padding: 150px 20px;
+  }
+  
+  .hero h1.glitch {
+    font-size: 60px;
+    color: #FFFFFF;
+    position: relative;
+  }
+  
+  .hero h1.glitch::before,
+  .hero h1.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    color: #FF1AB0; /* neon pink */
+  }
+  
+  .hero h1.glitch::before {
+    animation: glitch1 2s infinite linear alternate-reverse;
+  }
+  
+  @keyframes glitch1 {
+    0% { transform: translate(-2px, 1px); }
+    100% { transform: translate(2px, -1px); }
+  }
+  
+  p {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  /* BUTTONS */
+  .neon-btn {
+    background: none;
+    border: 2px solid #FF1AB0;  /* button border color */
+    color: #FF1AB0;             /* text color */
+    padding: 12px 25px;         /* inside spacing */
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-top: 50px;           /* space above the button */
+    margin: 5px;
+    display: inline-block;       /* ensures margin works properly */
+    border-radius: 8px;          /* optional: rounded corners */
+  }
+  
+  .neon-btn:hover {
+    background: #FF1AB0;
+    color: #1C1C1E;
+    box-shadow: 0 0 15px #FF1AB0;
+    cursor: pointer;
+  }
+  
+  /* PROJECT CARDS */
+  .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+  }
+
+  
+  .card {
+    background: #2A2A2C;
+    padding: 30px;
+    border-radius: 15px;
+    width: 600px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: perspective(600px) rotateY(10deg) rotateX(5deg);
+    box-shadow: 0 10px 20px rgba(255, 26, 176, 0.3);
+  }
+
+    /* Slideshow container */
+    .slideshow 
+    { position: relative; 
+    width: 100%; 
+    height: auto; 
+    aspect-ratio: 16 / 9;
+    overflow: hidden; 
+    border-radius: 10px; 
+    margin-bottom: 15px; }
+      
+    .slideshow img {
+        position: absolute;
+        top: 0;       /* Pins to top */
+        left: 0;      /* Pins to left */
+        width: 100%; 
+        height: 100%;
+        object-fit: contain;
+        background: #1a1a1a; 
+        opacity: 0;   /* Hidden by default */
+        transition: opacity 1s ease-in-out;
+      }
+      
+      /* Add a class to show the current image */
+      .slideshow img.active {
+        opacity: 1;
+        z-index: 10; /* Brings it to the front */
+      }
+
+
+  .glitch {
+    font-size: 60px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #FFFFFF;
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Create glitch layers using span's ::before and ::after */
+  .glitch span::before,
+  .glitch span::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #FF1AB0; /* neon pink */
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* hide initially */
+  }
+  
+  /* Glitch animation for neon flicker */
+  @keyframes glitchTop {
+    0% { transform: translate(-2px, -2px); clip: rect(0, 100%, 45%, 0);}
+    25% { transform: translate(2px, 2px); clip: rect(0, 100%, 50%, 0);}
+    50% { transform: translate(-2px, 0px); clip: rect(0, 100%, 40%, 0);}
+    75% { transform: translate(2px, -1px); clip: rect(0, 100%, 55%, 0);}
+    100% { transform: translate(0, 0); clip: rect(0, 100%, 45%, 0);}
+  }
+  
+  @keyframes glitchBottom {
+    0% { transform: translate(2px, 2px); clip: rect(55%, 100%, 100%, 0);}
+    25% { transform: translate(-2px, -2px); clip: rect(50%, 100%, 100%, 0);}
+    50% { transform: translate(2px, 0); clip: rect(60%, 100%, 100%, 0);}
+    75% { transform: translate(-1px, 1px); clip: rect(55%, 100%, 100%, 0);}
+    100% { transform: translate(0, 0); clip: rect(55%, 100%, 100%, 0);}
+  }
+  
+  /* Apply animation */
+  .glitch span::before {
+    animation: glitchTop 2s infinite linear alternate-reverse;
+  }
+  .glitch span::after {
+    animation: glitchBottom 2s infinite linear alternate-reverse;
+  }
+
+  #about {
+    padding: 80px 20px;
+    background-color: #fff0f6; /* light pink background */
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #FF1AB0; /* pink accent */
+  }
+  
+  .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .about-text {
+    flex: 1;
+    min-width: 280px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+  }
+  
+  .about-image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+  }
+  
+  .about-image img {
+    width: 250px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 26, 176, 0.3); /* soft pink shadow */
+    transition: transform 0.3s ease;
+  }
+  
+  .about-image img:hover {
+    transform: translateY(-10px) scale(1.05); /* subtle hover effect */
+  }
+  
+
+  
+ 
+  #skills {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .skills-category {
+    margin-bottom: 40px;
+  }
+  
+  .skills-category h3 {
+    color: #FF66B2; /* Pink heading */
+    margin-bottom: 15px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .skill {
+    background-color: #FF66B2; /* Pink chip */
+    color: #1C1C1E;           /* Dark text */
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .skill:hover {
+    transform: scale(1.1);
+    background-color: #FF3399; /* Darker pink hover */
+    box-shadow: 0 4px 15px rgba(255, 51, 153, 0.4);
+  }
+
+
+/* Contact Section Container */
+
+#contact {
+    background-color: #fff0f6; /* Pink background */
+    padding: 50px 20px;
+  }
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px;
+  }
+  
+  /* Contact Text */
+  .contact-text {
+    flex: 1;
+    min-width: 280px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+  }
+  
+  /* Contact Buttons */
+  .contact-buttons {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+  }
+  
+  .contact-buttons ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .contact-buttons ul li {
+    list-style: none;
+  }
+  
+  .contact-buttons ul li a {
+    text-decoration: none;
+    display: block;
+    width: 200px;
+    height: 80px;
+    background: #fff;
+    text-align: left;
+    padding-left: 20px;
+    transform: rotate(-30deg) skew(25deg);
+    transition: .5s;
+    box-shadow: -20px 20px 10px rgba(0,0,0,.5);
+    position: relative;
+  }
+  
+  .contact-buttons ul li a .fa {
+    font-size: 40px;
+    color: #262626;
+    line-height: 80px;
+    transition: .5s;
+    padding-right: 14px;
+  }
+  
+  .contact-buttons ul li a span {
+    position: absolute;
+    top: 30px;
+    color: #262626;
+    letter-spacing: 4px;
+    transition: .5s;
+  }
+  
+  /* 3D effect layers */
+  .contact-buttons ul li a:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    height: 100%;
+    width: 20px;
+    background: #b1b1b1;
+    transform: rotate(0deg) skewY(-45deg);
+  }
+  
+  .contact-buttons ul li a:after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    height: 20px;
+    width: 100%;
+    background: #b1b1b1;
+    transform: rotate(0deg) skewX(-45deg);
+  }
+  
+  /* Hover animation */
+  .contact-buttons ul li a:hover {
+    transform: rotate(-30deg) skew(25deg) translate(20px,-15px);
+    box-shadow: -50px 50px 50px rgba(0,0,0,.5);
+  }
+  
+  .contact-buttons ul li:hover .fa,
+  .contact-buttons ul li:hover span {
+    color: #fff;
+  }
+  
+  /* LinkedIn Hover Colors */
+  .contact-buttons ul li:hover:nth-child(1) a {
+    background: #0077b5;
+  }
+  .contact-buttons ul li:hover:nth-child(1) a:before {
+    background: #005983;
+  }
+  .contact-buttons ul li:hover:nth-child(1) a:after {
+    background: #3399cc;
+  }
+  
+  /* Outlook Hover Colors */
+  .contact-buttons ul li:hover:nth-child(2) a {
+    background: #0078D4;
+  }
+  .contact-buttons ul li:hover:nth-child(2) a:before {
+    background: #005ea6;
+  }
+  .contact-buttons ul li:hover:nth-child(2) a:after {
+    background: #3399e6;
+  }
